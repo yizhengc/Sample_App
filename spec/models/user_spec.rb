@@ -13,7 +13,7 @@ require 'spec_helper'
 
 describe User do
   before { @user = User.new(:name => "Example User", :email => "user@example.com",
-                            :password => "foobar", :password_confirmatio => "foobar") }
+                            :password => "foobar", :password_confirmation => "foobar") }
 
   subject { @user }
 
@@ -109,6 +109,6 @@ describe User do
   
   describe "with a password that's too short" do
     before {@user.password = @user.password_confirmation = "a" * 5 }
-    it { should be_valid }
+    it { should_not be_valid }
   end
 end
